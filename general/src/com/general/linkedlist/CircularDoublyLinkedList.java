@@ -3,14 +3,14 @@ package com.general.linkedlist;
 import java.util.Scanner;
 
 /**
- * @author kavya k on 18-Jan-2020
+ * @author kavya k on 02-Feb-2020
  */
-public class DoublyLinkedList {
+public class CircularDoublyLinkedList {
 
     public static DoublePointerNode head=null;
 
     public static void main(String[] args){
-        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+        CircularDoublyLinkedList circularDoublyLinkedList = new CircularDoublyLinkedList();
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
         while (run) {
@@ -27,20 +27,20 @@ public class DoublyLinkedList {
             switch (argument) {
                 case 1:
                     System.out.println("enter the element to be added to the front: ");
-                    doublyLinkedList.addElementFront(scanner.nextInt());
+                    circularDoublyLinkedList.addElementFront(scanner.nextInt());
                     break;
                 case 2:
                     System.out.println("enter the element to be added to the back: ");
-                    doublyLinkedList.addElementBack(scanner.nextInt());
+                    circularDoublyLinkedList.addElementBack(scanner.nextInt());
                     break;
                 case 3:
                     System.out.print("delete the element from the front: ");
-                    value = doublyLinkedList.deleteElementFront();
+                    value = circularDoublyLinkedList.deleteElementFront();
                     System.out.println(value != -1 ? value : "No element to delete");
                     break;
                 case 4:
                     System.out.print("delete the element from the back: ");
-                    value = doublyLinkedList.deleteElementBack();
+                    value = circularDoublyLinkedList.deleteElementBack();
                     System.out.println(value != -1 ? value : "No element to delete");
                     break;
                 case 5:
@@ -48,16 +48,16 @@ public class DoublyLinkedList {
                     int element = scanner.nextInt();
                     System.out.println("enter the index : ");
                     int position = scanner.nextInt();
-                    doublyLinkedList.addElementPosition(element , position);
+                    circularDoublyLinkedList.addElementPosition(element , position);
                     break;
                 case 6:
                     System.out.println("enter the position from which element is to be deleted : ");
-                    value = doublyLinkedList.deleteElementPosition(scanner.nextInt());
+                    value = circularDoublyLinkedList.deleteElementPosition(scanner.nextInt());
                     System.out.println(value != -1 ? value : "No element to delete");
                     break;
                 case 7:
                     System.out.println("linked list elements : ");
-                    doublyLinkedList.displayList();
+                    circularDoublyLinkedList.displayList();
                     break;
                 default:
                     run = false;
@@ -71,9 +71,17 @@ public class DoublyLinkedList {
         DoublePointerNode newNode = new DoublePointerNode(element);
         if(head == null) {
             head = newNode;
+            newNode.setNext(newNode);
+            newNode.setPrev(newNode);
         }else {
             head.setPrev(newNode);
             newNode.setNext(head);
+            DoublePointerNode traversalNode = head;
+            while (traversalNode.getNext()!=head){
+                traversalNode = traversalNode.getNext();
+            }
+            traversalNode.setNext(newNode);
+            newNode.setPrev(traversalNode);
             head = newNode;
         }
     }
@@ -82,13 +90,17 @@ public class DoublyLinkedList {
         DoublePointerNode newNode = new DoublePointerNode(element);
         if(head != null) {
             DoublePointerNode traversalNode = head;
-            while (traversalNode.getNext() != null) {
+            while (traversalNode.getNext() != head) {
                 traversalNode = traversalNode.getNext();
             }
             newNode.setPrev(traversalNode);
+            newNode.setNext(head);
+            head.setPrev(newNode);
             traversalNode.setNext(newNode);
         }else{
             head = newNode;
+            newNode.setNext(newNode);
+            newNode.setPrev(newNode);
         }
     }
 
@@ -104,21 +116,32 @@ public class DoublyLinkedList {
             if(head!=null){
                 newNode.setNext(head);
                 head.setPrev(newNode);
+                DoublePointerNode traversalNod = head;
+                while (traversalNod.getNext() != head) {
+                    traversalNod = traversalNod.getNext();
+                }
+                traversalNod.setNext(newNode);
+                newNode.setNext(head);
+                head.setPrev(newNode);
+                newNode.setPrev(traversalNod);
+                head = newNode;
+            }else{
+                head = newNode;
+                head.setNext(newNode);
+                head.setPrev(newNode);
             }
-            head = newNode;
+
         } else {
-            while (count < index - 1 && traversalNode.getNext() != null) {
+            while (count < index - 1 && traversalNode.getNext() != head) {
                 traversalNode = traversalNode.getNext();
                 count++;
             }
-            if (traversalNode.getNext() == null && count < index - 1) {
+            if (traversalNode.getNext() == head && count < index - 1) {
                 System.out.println("the specified position is greater than the size of the linked list.");
             } else {
                 newNode.setNext(traversalNode.getNext());
                 newNode.setPrev(traversalNode);
-                if(null != traversalNode.getNext()) {
-                    traversalNode.getNext().setPrev(newNode);
-                }
+                traversalNode.getNext().setPrev(newNode);
                 traversalNode.setNext(newNode);
 
             }
@@ -128,9 +151,16 @@ public class DoublyLinkedList {
     public int deleteElementFront(){
         if(head !=null) {
             int ele = head.getData();
-            head = head.getNext();
-            if(head!=null) {
-                head.setPrev(null);
+            if(head.getNext() !=head) {
+                DoublePointerNode traversalNode = head;
+                while (traversalNode.getNext() != head) {
+                    traversalNode = traversalNode.getNext();
+                }
+                head = head.getNext();
+                traversalNode.setNext(head);
+                head.setPrev(traversalNode);
+            }else{
+                head = null;
             }
             return ele;
         }else{
@@ -143,13 +173,14 @@ public class DoublyLinkedList {
             return -1;
         }
         int value;
-        if (head.getNext() != null) {
+        if (head.getNext() != head) {
             DoublePointerNode traversalNode = head;
-            while (traversalNode.getNext().getNext() != null) {
+            while (traversalNode.getNext().getNext() != head) {
                 traversalNode = traversalNode.getNext();
             }
             value = traversalNode.getNext().getData();
-            traversalNode.setNext(null);
+            traversalNode.setNext(head);
+            head.setPrev(traversalNode);
             return value;
         }
         value = head.getData();
@@ -164,25 +195,30 @@ public class DoublyLinkedList {
         int value = -1;
         if (index == 0) {
             value = head.getData();
-            head = head.getNext();
-            if(head!=null) {
-                head.setPrev(null);
+            if(head.getNext() !=head) {
+                DoublePointerNode traversalNode = head;
+                while (traversalNode.getNext() != head) {
+                    traversalNode = traversalNode.getNext();
+                }
+                head = head.getNext();
+                traversalNode.setNext(head);
+                head.setPrev(traversalNode);
+            }else{
+                head = null;
             }
             return value;
         }
         DoublePointerNode curNode = head;
         int count = 0;
-        while (count < index - 1 && curNode.getNext() != null) {
+        while (count < index - 1 && curNode.getNext() != head) {
             curNode = curNode.getNext();
             count++;
         }
-        if (curNode.getNext() == null && count < index) {
+        if (curNode.getNext() == head && count < index) {
             System.out.println("specified index does not exist in the list");
         } else {
             value = curNode.getNext().getData();
-            if(null != curNode.getNext().getNext()) {
-                curNode.getNext().getNext().setPrev(curNode);
-            }
+            curNode.getNext().getNext().setPrev(curNode);
             curNode.setNext(curNode.getNext().getNext());
         }
         return value;
@@ -190,11 +226,17 @@ public class DoublyLinkedList {
 
     public void displayList() {
         DoublePointerNode nodeRef = head;
-        while (nodeRef != null) {
-            System.out.println("node value value : " + nodeRef.getData());
+        if(head !=null) {
+            System.out.println("node value : " +head.getData());
             System.out.println("prev value : " + (nodeRef.getPrev() != null?nodeRef.getPrev().getData():null));
             System.out.println("next value : " + (nodeRef.getNext() == null?null:nodeRef.getNext().getData()));
-            nodeRef = nodeRef.getNext();
+
+            while (nodeRef.getNext() != head) {
+                nodeRef = nodeRef.getNext();
+                System.out.println("node value value: " + nodeRef.getData());
+                System.out.println("prev value : " + (nodeRef.getPrev() != null?nodeRef.getPrev().getData():null));
+                System.out.println("next value : " + (nodeRef.getNext() == null?null:nodeRef.getNext().getData()));
+            }
         }
     }
 }

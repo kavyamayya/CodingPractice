@@ -170,7 +170,8 @@ public class SinglyLinkedList {
     public void displayList() {
         SinglePointerNode nodeRef = head;
         while (nodeRef != null) {
-            System.out.println("node value : " + nodeRef.getData());
+            System.out.println("node value value: " + nodeRef.getData());
+            System.out.println("next value : " + (nodeRef.getNext() == null?null:nodeRef.getNext().getData()));
             nodeRef = nodeRef.getNext();
         }
     }

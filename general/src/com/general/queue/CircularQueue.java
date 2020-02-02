@@ -19,11 +19,11 @@ public class CircularQueue {
         CircularQueue circularQueue = new CircularQueue(5);
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
-        System.out.println("select one of the options from below : ");
-        System.out.println("1- add element\n2- delete element\n3- capacity of the queue\n"
-                + "4- queue empty check\n5- queue full check\n6- size of the queue\n"
-                + "7- display the elements in the queue\npress any other key to exit");
         while(flag) {
+            System.out.println("select one of the options from below : ");
+            System.out.println("1- add element\n2- delete element\n3- capacity of the queue\n"
+                    + "4- queue empty check\n5- queue full check\n6- size of the queue\n"
+                    + "7- display the elements in the queue\npress any other key to exit");
             switch (scanner.nextInt()) {
                 case 1:
                     System.out.println("enter the element to be added : " );
@@ -62,27 +62,28 @@ public class CircularQueue {
 
     public static void enQueue(int element) {
         System.out.println("adding element " + element);
-        if(front == (rear+1)%size){
+        if(front == (rear+1)%CAPACITY){
             System.out.println("queue is full. Can not add the element.");
+        }else {
+            if (front == -1) {
+                front = rear = 0;
+                size++;
+            } else {
+                rear = (rear + 1) % CAPACITY;
+                size++;
+            }
+            queueArray[rear] = element;
         }
-        if(front == -1){
-            front = rear = 0;
-            size++;
-        }else{
-            rear = (rear+1)%size;
-            size++;
-        }
-        queueArray[rear] = element;
     }
 
     public static void deQueue() {
-        if (front==-1) {
+        if (front!=-1) {
             System.out.println("removed the element : "+queueArray[front]);
             if(front == rear){
                 front = rear =-1;
                 size--;
             }else{
-                front = (front+1)%size;
+                front = (front+1)%CAPACITY;
                 size--;
             }
         } else {
@@ -95,6 +96,6 @@ public class CircularQueue {
     }
 
     public static boolean isFull() {
-        return front == (rear+1)%size;
+        return front == (rear+1)%CAPACITY;
     }
 }

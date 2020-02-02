@@ -7,6 +7,7 @@ public class DoublyEndedQueue {
     public static int rear = -1;
     public static int CAPACITY;
     public static int[] queueArray;
+    private static int size = 0;
 
     public DoublyEndedQueue(int capacity) {
         CAPACITY = capacity;
@@ -30,38 +31,32 @@ public class DoublyEndedQueue {
                 switch (argument) {
                     case 1:
                         System.out.println("enter the element to be added to the front: ");
-                        addElementFront(scanner.nextInt());
+                        queue.addElementFront(scanner.nextInt());
                         break;
                     case 2:
                         System.out.println("enter the element to be added to the rear: ");
-                        addElementRear(scanner.nextInt());
+                        queue.addElementRear(scanner.nextInt());
                         break;
                     case 3:
-                        removeElementFront();
+                        queue.removeElementFront();
                         break;
                     case 4:
-                        removeElementRear();
+                        queue.removeElementRear();
                         break;
                     case 5:
                         System.out.println("capacity of the queue is : " + CAPACITY);
-                        //
                         break;
                     case 6:
-                        System.out.println(queueFull() ? "queue is full." : "queue is not full");
+                        System.out.println(queue.queueFull() ? "queue is full." : "queue is not full");
                         break;
                     case 7:
-                        System.out.println(queueEmpty() ? "queue is empty." : "queue is not empty");
-                        // System.out.println("Size : " + numberOfElements);
+                        System.out.println(queue.queueEmpty() ? "queue is empty." : "queue is not empty");
                         break;
                     case 8:
-                        System.out.println("Size : " + (front + 1));
+                        System.out.println("Size : " + size);
                         break;
                     case 9:
-                        System.out.println("queue elements : ");
-                        for (int i = 0; i <= front; i++) {
-                            System.out.print(queueArray[i] + " ");
-                        }
-                        System.out.println();
+                        queue.display();
                         break;
                     default:
                         run = false;
@@ -73,56 +68,86 @@ public class DoublyEndedQueue {
     }
 
     //function to add element to the front of queue
-    public static void addElementFront(int element) {
-        if ((front + 1) != CAPACITY) {
-            for (int i = front; i >= 0; i--) {
-                queueArray[i + 1] = queueArray[i];
-            }
-            queueArray[0] = element;
-            ++front;
-        } else {
+    public void addElementFront(int element) {
+        System.out.println("adding element " + element);
+        if(front == (rear+1)%CAPACITY){
             System.out.println("queue is full. Can not add the element.");
+        }else {
+            if (front == -1) {
+                front = rear = 0;
+                size++;
+            } else {
+                if (front == 0) {
+                    front = CAPACITY - 1;
+                } else {
+                    front--;
+                }
+                size++;
+            }
+            queueArray[front] = element;
         }
     }
 
     //function to add element to the rear of queue
-    public static void addElementRear(int element) {
-        if ((front + 1) != CAPACITY) {
-            queueArray[++front] = element;
-        } else {
+    public void addElementRear(int element) {
+        System.out.println("adding element " + element);
+        if(front == (rear+1)%CAPACITY){
             System.out.println("queue is full. Can not add the element.");
-        }
-    }
-
-    public static void removeElementFront() {
-        if (front != -1) {
-            System.out.println("deleting element from the front : " + queueArray[0]);
-            for (int i = 0; i < front; i++) {
-                queueArray[i] = queueArray[i + 1];
+        }else {
+            if (rear == -1) {
+                front = rear = 0;
+                size++;
+            } else {
+                rear = (rear + 1) % CAPACITY;
+                size++;
             }
-            front--;
-        } else {
-            System.out.println("queue is empty.No element to remove.");
+            queueArray[rear] = element;
         }
     }
 
-    public static void removeElementRear() {
+    public void removeElementFront() {
         if (front != -1) {
-            System.out.println("deleting element from the rear : " + queueArray[front--]);
+            System.out.println("deleting element from the front : " + queueArray[front]);
+            if(front == rear){
+                front = rear =-1;
+                size--;
+            }else{
+                front=(front+1)%CAPACITY;
+                size--;
+            }
         } else {
             System.out.println("queue is empty.No element to remove.");
         }
     }
 
-    public static boolean queueFull() {
-        return ((front + 1) == CAPACITY);
+    public void removeElementRear() {
+        if (front != -1) {
+            System.out.println("deleting element from the rear : " + queueArray[rear]);
+            if(front == rear){
+                front = rear =-1;
+                size--;
+            }else{
+                rear=rear-1;
+                size--;
+            }
+        } else {
+            System.out.println("queue is empty.No element to remove.");
+        }
     }
 
-    public static boolean queueEmpty() {
+    public boolean queueFull() {
+        return (front == (rear+1)%CAPACITY);
+    }
+
+    public boolean queueEmpty() {
         return (front == -1);
     }
 
-    public int getCAPACITY() {
-        return CAPACITY;
+    public void display(){
+        int count=0;
+        while(count<size) {
+            System.out.println(queueArray[((front+count)%CAPACITY)]);
+            count++;
+        }
     }
 }
