@@ -1,4 +1,4 @@
-package scaler.ArraysAndMaths;
+package scaler.ArraysAndMaths.assignments;
 
 import java.util.Arrays;
 
