@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CodingPractice.iml" filepath="$PROJECT_DIR$/CodingPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InterviewBit/InterviewBit.iml" filepath="$PROJECT_DIR$/InterviewBit/InterviewBit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/geeksforgeeks/geeksforgeeks.iml" filepath="$PROJECT_DIR$/geeksforgeeks/geeksforgeeks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/general/general.iml" filepath="$PROJECT_DIR$/general/general.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hackerrank/hackerrank.iml" filepath="$PROJECT_DIR$/hackerrank/hackerrank.iml" />
+    </modules>
+  </component>
+</project>
