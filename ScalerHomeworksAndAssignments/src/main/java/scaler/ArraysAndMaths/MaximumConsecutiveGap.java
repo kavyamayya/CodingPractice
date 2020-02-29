@@ -16,7 +16,7 @@ import java.util.Arrays;
  */
 public class MaximumConsecutiveGap {
     public static void main(String[] args) {
-        int[] A = new int[]{1,1,2};
+        int[] A = new int[]{1, 1, 2};
         System.out.println(maximumGap(A));
     }
 
