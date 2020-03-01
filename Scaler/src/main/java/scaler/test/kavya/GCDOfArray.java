@@ -1,4 +1,4 @@
-package com.scaler.test;
+package scaler.test.kavya;
 
 /*
  * @author kavya k on 15-Feb-2020
@@ -7,10 +7,6 @@ package com.scaler.test;
 import sun.reflect.generics.tree.Tree;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
-
 /**
  * Given an integer array A of size N. You can delete at most B elements from the array such that GCD of the
  * remaining array is maximum.Find the maximum GCD of the remaining array.
@@ -29,11 +25,15 @@ import java.util.TreeMap;
 public class GCDOfArray {
 
     public static void main(String[] args){
-        int[] A = new int[]{14,17,28,70};
+        int[] A = new int[]{2,6,3,9,8};
         int B = 3;
         System.out.println(findMaxGCD(A,B));
     }
-
+    //sort the array so that maximum possible gcd will be at the end of the array.traverse from the last as we need
+    //maximum possible gcd.
+    //take the element from the last as gcd and check if the other elements can match this gcd.if no check the count of other elements
+    //if the count is greater than B that is not gcd.go for the next highest element and check.
+    //for checking gcd only greater elements are considered.so j loops starts from i+1;
     private static int findMaxGCD(int[] A , int B){
         Arrays.sort(A);
         for(int i=A.length-1;i>=0;i--){

@@ -1,4 +1,4 @@
-package com.scaler.test;
+package scaler.test.kavya;
 
 /*
  * @author kavya k on 16-Feb-2020
@@ -7,7 +7,7 @@ package com.scaler.test;
 /**
  * Given a string A of length N consisting of lower case characters only.Return the count of subsequences
  * of the given string in which  the characters are lexicographically sorted.
- * Empty subsequences are not conted in the answer.
+ * Empty subsequences are not counted in the answer.
  * Note:Return the answer modulo 100000007 as the answer can be very large.
  *
  * Problem constraints
