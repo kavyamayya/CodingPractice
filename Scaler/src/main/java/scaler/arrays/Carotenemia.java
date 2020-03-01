@@ -1,4 +1,4 @@
-package scaler.ArraysAndMaths.assignments;
+package scaler.arrays;
 
 /**
  * You are given an Array of boxes A, where each box consists of oranges. You really love oranges,

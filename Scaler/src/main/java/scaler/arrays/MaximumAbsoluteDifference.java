@@ -1,4 +1,4 @@
-package scaler.ArraysAndMaths.assignments;
+package scaler.arrays;
 
 /**
  * You are given an array of N integers, A1, A2 ,..., AN. Return maximum value of f(i, j) for all 1 ≤ i, j ≤ N. f(i, j)
