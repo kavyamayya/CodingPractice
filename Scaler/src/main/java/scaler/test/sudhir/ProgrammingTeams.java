@@ -1,12 +1,15 @@
-package com.interviewbit;
+/*
+package scaler.test.sudhir;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+*/
 /**
  * @author kavya k on 02-Feb-2020
- */
+ *//*
+
 public class ProgrammingTeams {
 
     public static void main(String[] args){
@@ -33,3 +36,4 @@ public class ProgrammingTeams {
         return max;
     }
 }
+*/

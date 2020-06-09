@@ -1,12 +1,15 @@
-package com.interviewbit;
+/*
+package scaler.test.sudhir;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /**
  * @author kavya k on 05-Feb-2020
- */
+ *//*
+
 public class SendTheMessage {
 
     public static void main(String[] args){
@@ -19,7 +22,7 @@ public class SendTheMessage {
     }
 
     private static int sendMessage(Integer A,int[] B,int[] C){
-        Map<Integer,Integer> map = new HashMap<>();
+       // Map<Integer,Integer> map = new HashMap<>();
         int count=0,maxBranch=0,maxLength=0;
         for(int i=1;i<A;i++){
             if(!map.containsKey(B[i-1])){
@@ -37,3 +40,4 @@ public class SendTheMessage {
         return count;
     }
 }
+*/

@@ -1,4 +1,4 @@
-package com.interviewbit;
+package scaler.test.sudhir;
 
 import java.util.Date;
 

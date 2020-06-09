@@ -1,4 +1,4 @@
-package com.interviewbit;
+package scaler.test.sudhir;
 
 import java.util.Arrays;
 
@@ -10,7 +10,7 @@ public class RotatingTheStrings {
         String A = "AA";
         int[] B = new int[]{1,2,3};
         int[] result = findSameIndices(A,B);
-        Arrays.stream(result).forEach(System.out::println);
+       // Arrays.stream(result).forEach(System.out::println);
     }
 
     private static int[] findSameIndices(String A , int[] B){

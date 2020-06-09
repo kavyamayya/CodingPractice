@@ -1,4 +1,4 @@
-package com.interviewbit;
+package scaler.test.sudhir;
 
 /**
  * @author kavya k on 02-Feb-2020

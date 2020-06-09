@@ -1,4 +1,5 @@
-package com.interviewbit;
+/*
+package scaler.test.sudhir;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,9 +7,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
+*
  * @author kavya k on 02-Feb-2020
- */
+
+
 public class TaskScheduling {
     public static void main(String[] args){
         int[] A = new int[]{5,1,4,2,3};
@@ -36,3 +38,4 @@ public class TaskScheduling {
         return clockCycle;
     }
 }
+*/
