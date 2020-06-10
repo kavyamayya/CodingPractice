@@ -26,7 +26,7 @@ package com.scaler.arrays;
  *
  * @author kavya k on 29-Feb-2020
  */
-public class SpiralOrderMatrix {
+public class SpiralOrderMatrix2 {
     public static void main(String[] args) {
         int A = 3;
         generateMatrix(A);
