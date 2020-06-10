@@ -7,7 +7,7 @@ package com.scaler.maths;
  * Scooby calls a positive integer special if it is divisible by B and it is divisible by C. You need to tell number of special integers less than or equal to A.
  *
  * Problem Constraints
- * 1 <= A, B, C <= 109
+ * 1 <= A, B, C <= 10^9
  *
  * Input Format
  * First argument is a positive integer A

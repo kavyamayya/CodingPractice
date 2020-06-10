@@ -10,7 +10,7 @@ package com.scaler.arrays;
  * Note: If it not possible to reach the last index return -1 instead.
  * Problem Constraints
  * 1 <= length of the array <= 100000
- * 0 <= A[i] <= 109
+ * 0 <= A[i] <= 10^9
  *
  * Input Format
  * The only argument given is the integer array A.

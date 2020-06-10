@@ -6,7 +6,7 @@ package com.scaler.maths;
  * Given two integers A and B, find the greatest possible positive M, such that A % M = B % M.
  *
  * Problem Constraints
- * 1 <= A, B <= 109
+ * 1 <= A, B <= 10^9
  * A != B
  *
  * Input Format

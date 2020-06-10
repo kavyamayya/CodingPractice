@@ -9,7 +9,7 @@ package com.scaler.maths;
  * Greatest common divisor of 2 numbers A and B is the largest number D that divides both A and B perfectly.
  *
  * Problem Constraints
- * 1 <= A <= B <= 10100
+ * 1 <= A <= B <= 10^100
  *
  * Input Format
  * First argument is a string denoting A.

@@ -6,7 +6,7 @@ package com.scaler.maths;
  * Given an integer A.
  * Return number of ways we can write A as a sum of consecutive positive integers.
  * Problem Constraints
- * 1 <= A <= 109
+ * 1 <= A <= 10^9
  *
  * Input Format
  * The first argument given is the integer A.

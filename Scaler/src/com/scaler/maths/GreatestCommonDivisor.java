@@ -10,7 +10,7 @@ package com.scaler.maths;
  * Note: DO NOT USE LIBRARY FUNCTIONS.
  *
  * Problem Constraints
- * 0 <= A, B <= 109
+ * 0 <= A, B <= 10^9
  *
  * Input Format
  * First argument is an integer A.

@@ -7,8 +7,8 @@ package com.scaler.maths;
  * Find the maximum value of GCD.
  *
  * Problem Constraints
- * 2 <= N <= 105
- * 1 <= A[i] <= 109
+ * 2 <= N <= 10^5
+ * 1 <= A[i] <= 10^9
  *
  * Input Format
  * First argument is an integer array A.

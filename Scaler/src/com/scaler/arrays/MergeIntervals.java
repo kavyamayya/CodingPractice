@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * You may assume that the intervals were initially sorted according to their start times.
  *
  * Problem Constraints
- * 1 <= |intervals| <= 105
+ * 1 <= |intervals| <= 10^5
  *
  * Input Format
  * First argument is the vector of intervals second argument is the new interval to be merged

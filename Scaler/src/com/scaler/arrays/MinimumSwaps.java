@@ -12,7 +12,7 @@ import java.util.List;
  *
  * Problem Constraints
  * 1 <= length of the array <= 100000
- * -109 <= A[i], B <= 109
+ * -109 <= A[i], B <= 10^9
  *
  * Input Format
  * The first argument given is the integer array A.

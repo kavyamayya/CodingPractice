@@ -8,7 +8,7 @@ package com.scaler.maths;
  * Note: Your solution should run in logarithmic time complexity.
  *
  * Problem Constraints
- * 1 <= A <= 109
+ * 1 <= A <= 10^9
  *
  * Input Format
  * First and only argument is a single integer A.

@@ -8,7 +8,7 @@ package com.scaler.maths;
  * Given an integer A, find and return the total number of digit 1 appearing in all non-negative integers less than or equal to A.
  *
  * Problem Constraints
- * 0 <= A <= 109
+ * 0 <= A <= 10^9
  *
  * Input Format
  * The only argument given is the integer A.
