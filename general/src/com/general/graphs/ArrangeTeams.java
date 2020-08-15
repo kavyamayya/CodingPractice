@@ -1,4 +1,4 @@
-package com.scaler;
+package com.general.graphs;
 
 /**
  * @author kavya k on 15-Aug-2020

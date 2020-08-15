@@ -1,4 +1,4 @@
-package com.scaler;
+package com.scaler.graphs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
